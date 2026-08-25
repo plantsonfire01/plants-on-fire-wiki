@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plants on Fire Wiki</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;line-height:1.6;font-size:16px}
+.header{position:sticky;top:0;z-index:100;background:rgba(28,42,28,0.97);backdrop-filter:blur(8px);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#f0c040}
+.logo .fire{color:#e85d1a}
+.nav-links{display:flex;gap:0.25rem;list-style:none}
+.nav-links a{display:block;padding:0.5rem 1rem;color:#a8c8a8;text-decoration:none;font-size:0.88rem;font-weight:500;border-radius:6px;transition:color 150ms,background 150ms}
+.nav-links a:hover{color:#f0f8f0;background:rgba(80,160,80,0.15)}
+.nav-links a.ext{color:#f0c040}
+.nav-links a.ext:hover{background:rgba(240,192,64,0.1)}
+.hero{background:#1c2a1c;padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('images/bg.png') center/cover no-repeat;opacity:0.3}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,42,28,0.4) 0%,rgba(28,42,28,0.7) 60%,rgba(28,42,28,0.95) 100%)}
+.hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.hero h1{font-family:'Fredoka',sans-serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:#f0f8f0;margin-bottom:1rem;line-height:1.15}
+.hero h1 .green{color:#5cb85c}
+.hero h1 .orange{color:#e85d1a}
+.hero p{font-size:1.1rem;color:#a8c8a8;max-width:500px;margin:0 auto 2rem;line-height:1.7}
+.hero-badge{display:inline-block;padding:0.5rem 1.25rem;background:rgba(92,184,92,0.15);border:1px solid rgba(92,184,92,0.3);border-radius:100px;color:#8bc88b;font-size:0.85rem;font-weight:500}
+.main{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem}
+.sections-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:4rem}
+.section-card{background:#fffcf7;border:1px solid #e8e0d4;border-radius:12px;padding:2rem;transition:border-color 200ms,box-shadow 200ms,transform 150ms;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.section-card:hover{border-color:#5cb85c;box-shadow:0 8px 24px rgba(45,36,24,0.06);transform:translateY(-2px)}
+.section-card-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+.section-card h3{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem}
+.section-card p{color:#5c4a38;font-size:0.88rem;line-height:1.6}
+.tag{display:inline-block;margin-top:0.75rem;padding:0.25rem 0.6rem;background:#f0ebe4;border-radius:4px;font-size:0.72rem;font-weight:600;color:#8a7a68;text-transform:uppercase;letter-spacing:0.05em}
+.content-section{margin-bottom:4rem;scroll-margin-top:80px}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:0.5rem}
+.content-section>p{color:#5c4a38;font-size:0.95rem;margin-bottom:1.5rem}
+.modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.mode-tile{background:#fffcf7;border:1px solid #e8e0d4;border-radius:10px;padding:1.5rem;text-align:center;transition:border-color 200ms,transform 150ms}
+.mode-tile:hover{border-color:#e85d1a;transform:translateY(-1px)}
+.mode-tile h4{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.4rem}
+.mode-tile p{color:#8a7a68;font-size:0.78rem}
+.cost-group{margin-bottom:2.5rem}
+.cost-group-header{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;color:#2d2418;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+.cost-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:#e85d1a;color:#fff;font-size:0.85rem;font-weight:700}
+.plants-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.plant-slot{position:relative;aspect-ratio:1;border-radius:10px;border:2px solid #e8e0d4;background:#fffcf7;overflow:visible;cursor:pointer;transition:border-color 200ms,transform 150ms,box-shadow 200ms}
+.plant-slot:hover{border-color:#5cb85c;transform:translateY(-3px) scale(1.05);box-shadow:0 6px 16px rgba(45,36,24,0.1);z-index:50}
+.plant-slot img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.plant-tooltip{display:none;position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:240px;background:rgba(20,14,10,0.96);border:1px solid rgba(92,184,92,0.4);border-radius:10px;padding:1.1rem 1.2rem;z-index:1000;box-shadow:0 8px 32px rgba(0,0,0,0.4);pointer-events:none}
+.plant-slot:hover .plant-tooltip{display:block}
+.cost-group .plant-slot:nth-child(n+7) .plant-tooltip{bottom:auto;top:calc(100% + 14px)}
+.plant-slot:nth-child(6n+1) .plant-tooltip,.plant-slot:nth-child(6n+2) .plant-tooltip{left:0;transform:translateX(0)}
+.plant-slot:nth-child(6n+5) .plant-tooltip,.plant-slot:nth-child(6n) .plant-tooltip{left:auto;right:0;transform:translateX(0)}
+.plant-tooltip-name{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;color:#f0f8f0;margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem}
+.plant-tooltip-rarity{font-size:0.65rem;padding:0.15rem 0.45rem;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.rarity-rare{background:rgba(123,46,160,0.25);color:#c88aef}
+.rarity-epic{background:rgba(232,93,26,0.25);color:#ff9a5c}
+.rarity-legendary{background:rgba(240,192,64,0.25);color:#f0c040}
+.rarity-common{background:rgba(140,140,140,0.2);color:#b0b0b0}
+.plant-tooltip-desc{color:#a8c8a8;font-size:0.82rem;margin-bottom:0.85rem;line-height:1.5}
+.plant-tooltip-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.plant-tooltip-stat{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0.6rem;background:rgba(255,255,255,0.06);border-radius:5px;font-size:0.75rem;gap:0.5rem}
+.plant-tooltip-stat .label{color:#8a9a7a;white-space:nowrap}
+.plant-tooltip-stat .value{color:#f0f8f0;font-weight:600;text-align:right}
+.footer{background:#1c2a1c;padding:2.5rem 2rem;text-align:center;color:#6a8a6a;font-size:0.8rem}
+.footer a{color:#f0c040;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;list-style:none}
+@media(max-width:768px){.header-inner{flex-direction:column;height:auto;padding:0.75rem 0;gap:0.5rem}.hero{padding:4rem 1.5rem 3.5rem}.main{padding:2.5rem 1.25rem 4rem}.sections-grid{grid-template-columns:1fr}.nav-links{flex-wrap:wrap;justify-content:center}.plants-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:480px){.modes-grid{grid-template-columns:1fr}.plants-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">🌱 Plants on <span class="fire">Fire</span> Wiki</div>
+    <ul class="nav-links">
+      <li><a href="#plants">Plants</a></li>
+      <li><a href="#game-modes">Game Modes</a></li>
+      <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Official Site ↗</a></li>
+      <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1><span class="green">Plants</span> on <span class="orange">Fire</span> Wiki</h1>
+    <p>Community guide for the fast-paced PvP tower defense where quirky plants, strategy, and chaos collide.</p>
+    <span class="hero-badge">🌿 Community-maintained guide</span>
+  </div>
+</section>
+
+<main class="main">
+
+  <div class="sections-grid">
+    <a href="#plants" class="section-card">
+      <div class="section-card-icon" style="background:#e8f5e8">🌻</div>
+      <h3>Plants</h3>
+      <p>Browse the full roster of plants, their skills, synergies, and merge paths.</p>
+    </a>
+    <a href="#game-modes" class="section-card">
+      <div class="section-card-icon" style="background:#fef0e0">⚔️</div>
+      <h3>Game Modes</h3>
+      <p>Ranked, Rumble Chess, Club Race, Co-Op, Adventure Mode, Boss Battle.</p>
+      <span class="tag">Coming soon</span>
+    </a>
+    <a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="section-card">
+      <div class="section-card-icon" style="background:#f0f0e0">🌐</div>
+      <h3>Official Website</h3>
+      <p>News, pre-registration, updates, and community events.</p>
+    </a>
+    <a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="section-card">
+      <div class="section-card-icon" style="background:#f0e8f8">🛒</div>
+      <h3>Webstore</h3>
+      <p>Official store for in-game purchases, bundles, and promotions.</p>
+    </a>
+  </div>
+
+  <section class="content-section" id="plants">
+    <h2>🌻 Plants</h2>
+    <p>Hover over any plant to see its stats and abilities. Grouped by deploy cost.</p>
+
+    <!-- Cost 3 -->
+    <div class="cost-group">
+      <div class="cost-group-header"><span class="cost-badge">3</span> Cost 3 Plants</div>
+      <div class="plants-grid">
+
+        <!-- Apple Sheriff -->
+        <div class="plant-slot">
+          <img src="images/apple-sheriff.png" alt="Apple Sheriff">
+          <div class="plant-tooltip">
+            <div class="plant-tooltip-name">Apple Sheriff <span class="plant-tooltip-rarity rarity-rare">Rare</span></div>
+            <div class="plant-tooltip-desc">Attacks 6 enemies at once, dealing 50% damage.</div>
+            <div class="plant-tooltip-stats">
+              <div class="plant-tooltip-stat"><span class="label">ATK</span><span class="value">11</span></div>
+              <div class="plant-tooltip-stat"><span class="label">Interval</span><span class="value">2.5s</span></div>
+              <div class="plant-tooltip-stat"><span class="label">Target</span><span class="value">Front Line</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Cost 2 -->
+    <div class="cost-group">
+      <div class="cost-group-header"><span class="cost-badge">2</span> Cost 2 Plants</div>
+      <div class="plants-grid">
+        <!-- Add cost 2 plants here -->
+      </div>
+    </div>
+
+    <!-- Cost 1 -->
+    <div class="cost-group">
+      <div class="cost-group-header"><span class="cost-badge">1</span> Cost 1 Plants</div>
+      <div class="plants-grid">
+        <!-- Add cost 1 plants here -->
+      </div>
+    </div>
+
+  </section>
+
+  <section class="content-section" id="game-modes">
+    <h2>⚔️ Game Modes</h2>
+    <p>All available game modes. Click any mode for detailed strategies, rewards, and tips.</p>
+    <div class="modes-grid">
+      <div class="mode-tile"><h4>🏆 Ranked</h4><p>Competitive PvP ladder</p></div>
+      <div class="mode-tile"><h4>♟️ Rumble Chess</h4><p>Auto-chess style battles</p></div>
+      <div class="mode-tile"><h4>🏁 Club Race</h4><p>Team-based racing event</p></div>
+      <div class="mode-tile"><h4>🤝 Co-Op</h4><p>Cooperative PvE missions</p></div>
+      <div class="mode-tile"><h4>🗺️ Adventure</h4><p>Story campaign progression</p></div>
+      <div class="mode-tile"><h4>👹 Boss Battle</h4><p>Challenging boss encounters</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <ul class="footer-links">
+    <li><a href="https://www.plantsonfire.com/" target="_blank">Official Website</a></li>
+    <li><a href="https://www.plantsonfire.com/" target="_blank">Webstore</a></li>
+  </ul>
+  <p>Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games.</p>
+</footer>
+
+</body>
+</html>
