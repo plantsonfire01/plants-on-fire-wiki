@@ -11,8 +11,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;line-height:1.6;font-size:16px}
 .header{position:sticky;top:0;z-index:100;background:rgba(28,42,28,0.97);backdrop-filter:blur(8px);padding:0 2rem}
 .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center}
-.logo img{height:40px;width:auto}
+.logo{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#f0c040}
+.logo .fire{color:#e85d1a}
 .nav-links{display:flex;gap:0.25rem;list-style:none}
 .nav-links a{display:block;padding:0.5rem 1rem;color:#a8c8a8;text-decoration:none;font-size:0.88rem;font-weight:500;border-radius:6px;transition:color 150ms,background 150ms}
 .nav-links a:hover{color:#f0f8f0;background:rgba(80,160,80,0.15)}
@@ -76,12 +76,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 
 <header class="header">
   <div class="header-inner">
-    <div class="logo"><img src="images/plants-on-fire-logo.png" alt="Plants on Fire"></div>
+    <div class="logo">🌱 Plants on <span class="fire">Fire</span> Wiki</div>
     <ul class="nav-links">
       <li><a href="#plants">Plants</a></li>
       <li><a href="#game-modes">Game Modes</a></li>
       <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Official Site ↗</a></li>
-      <li><a href="https://pay.nvsgames.com/" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
+      <li><a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
     </ul>
   </div>
 </header>
@@ -113,7 +113,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
       <h3>Official Website</h3>
       <p>News, pre-registration, updates, and community events.</p>
     </a>
-    <a href="https://pay.nvsgames.com/" target="_blank" rel="noopener" class="section-card">
+    <a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="section-card">
       <div class="section-card-icon" style="background:#f0e8f8">🛒</div>
       <h3>Webstore</h3>
       <p>Official store for in-game purchases, bundles, and promotions.</p>
@@ -184,7 +184,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 <footer class="footer">
   <ul class="footer-links">
     <li><a href="https://www.plantsonfire.com/" target="_blank">Official Website</a></li>
-    <li><a href="https://pay.nvsgames.com/" target="_blank">Webstore</a></li>
+    <li><a href="https://pay.nvsgames.com/home/ph-en" target="_blank">Webstore</a></li>
   </ul>
   <p>Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games.</p>
 </footer>
