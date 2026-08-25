@@ -1,3 +1,10 @@
+
+also, the cost units are 3, 5 and 8
+
+Got it. Here's the full updated code with the logo, webstore link fix, and cost groups 3, 5, and 8:
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +18,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;line-height:1.6;font-size:16px}
 .header{position:sticky;top:0;z-index:100;background:rgba(28,42,28,0.97);backdrop-filter:blur(8px);padding:0 2rem}
 .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#f0c040}
-.logo .fire{color:#e85d1a}
+.logo{display:flex;align-items:center}
+.logo img{height:40px;width:auto}
 .nav-links{display:flex;gap:0.25rem;list-style:none}
 .nav-links a{display:block;padding:0.5rem 1rem;color:#a8c8a8;text-decoration:none;font-size:0.88rem;font-weight:500;border-radius:6px;transition:color 150ms,background 150ms}
 .nav-links a:hover{color:#f0f8f0;background:rgba(80,160,80,0.15)}
@@ -22,9 +29,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 .hero::before{content:'';position:absolute;inset:0;background:url('images/bg.png') center/cover no-repeat;opacity:0.3}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,42,28,0.4) 0%,rgba(28,42,28,0.7) 60%,rgba(28,42,28,0.95) 100%)}
 .hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
-.hero h1{font-family:'Fredoka',sans-serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:#f0f8f0;margin-bottom:1rem;line-height:1.15}
-.hero h1 .green{color:#5cb85c}
-.hero h1 .orange{color:#e85d1a}
+.hero-logo{width:clamp(200px,40vw,320px);height:auto;margin-bottom:1.5rem}
 .hero p{font-size:1.1rem;color:#a8c8a8;max-width:500px;margin:0 auto 2rem;line-height:1.7}
 .hero-badge{display:inline-block;padding:0.5rem 1.25rem;background:rgba(92,184,92,0.15);border:1px solid rgba(92,184,92,0.3);border-radius:100px;color:#8bc88b;font-size:0.85rem;font-weight:500}
 .main{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem}
@@ -78,19 +83,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 
 <header class="header">
   <div class="header-inner">
-    <div class="logo">🌱 Plants on <span class="fire">Fire</span> Wiki</div>
+    <div class="logo"><img src="images/plants-on-fire-logo.png" alt="Plants on Fire"></div>
     <ul class="nav-links">
       <li><a href="#plants">Plants</a></li>
       <li><a href="#game-modes">Game Modes</a></li>
       <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Official Site ↗</a></li>
-      <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
+      <li><a href="https://pay.nvsgames.com/" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
     </ul>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1><span class="green">Plants</span> on <span class="orange">Fire</span> Wiki</h1>
+    <img src="images/plants-on-fire-logo.png" alt="Plants on Fire" class="hero-logo">
     <p>Community guide for the fast-paced PvP tower defense where quirky plants, strategy, and chaos collide.</p>
     <span class="hero-badge">🌿 Community-maintained guide</span>
   </div>
@@ -115,13 +120,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
       <h3>Official Website</h3>
       <p>News, pre-registration, updates, and community events.</p>
     </a>
-    <a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="section-card">
+    <a href="https://pay.nvsgames.com/" target="_blank" rel="noopener" class="section-card">
       <div class="section-card-icon" style="background:#f0e8f8">🛒</div>
       <h3>Webstore</h3>
       <p>Official store for in-game purchases, bundles, and promotions.</p>
     </a>
   </div>
 
+  <!-- Plants Section -->
   <section class="content-section" id="plants">
     <h2>🌻 Plants</h2>
     <p>Hover over any plant to see its stats and abilities. Grouped by deploy cost.</p>
@@ -148,24 +154,25 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
       </div>
     </div>
 
-    <!-- Cost 2 -->
+    <!-- Cost 5 -->
     <div class="cost-group">
-      <div class="cost-group-header"><span class="cost-badge">2</span> Cost 2 Plants</div>
+      <div class="cost-group-header"><span class="cost-badge">5</span> Cost 5 Plants</div>
       <div class="plants-grid">
-        <!-- Add cost 2 plants here -->
+        <!-- Add cost 5 plants here -->
       </div>
     </div>
 
-    <!-- Cost 1 -->
+    <!-- Cost 8 -->
     <div class="cost-group">
-      <div class="cost-group-header"><span class="cost-badge">1</span> Cost 1 Plants</div>
+      <div class="cost-group-header"><span class="cost-badge">8</span> Cost 8 Plants</div>
       <div class="plants-grid">
-        <!-- Add cost 1 plants here -->
+        <!-- Add cost 8 plants here -->
       </div>
     </div>
 
   </section>
 
+  <!-- Game Modes Section -->
   <section class="content-section" id="game-modes">
     <h2>⚔️ Game Modes</h2>
     <p>All available game modes. Click any mode for detailed strategies, rewards, and tips.</p>
@@ -184,7 +191,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 <footer class="footer">
   <ul class="footer-links">
     <li><a href="https://www.plantsonfire.com/" target="_blank">Official Website</a></li>
-    <li><a href="https://www.plantsonfire.com/" target="_blank">Webstore</a></li>
+    <li><a href="https://pay.nvsgames.com/" target="_blank">Webstore</a></li>
   </ul>
   <p>Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games.</p>
 </footer>
