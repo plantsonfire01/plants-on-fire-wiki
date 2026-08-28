@@ -24,7 +24,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 .nav-links a.btn-nav-orange:hover{background:#ff7b3a;transform:scale(1.05)}
 .mute-btn{background:none;border:1px solid rgba(168,200,168,0.4);color:#a8c8a8;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 150ms}
 .mute-btn:hover{background:rgba(92,184,92,0.2);color:#fff}
-.mute-btn.muted{color:#e85d1a;border-color:rgba(232,93,26,0.4)}
+.mute-btn.muted{color:#e85d1a}
 .lang-selector{position:relative}
 .lang-btn{background:none;border:1px solid rgba(168,200,168,0.4);color:#a8c8a8;padding:0.4rem 0.8rem;border-radius:100px;cursor:pointer;font-size:0.8rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;transition:all 150ms}
 .lang-btn:hover{background:rgba(92,184,92,0.2);color:#fff}
@@ -63,7 +63,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 @keyframes float2r{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes float3{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
 @keyframes float5{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
-
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;color:#a8c8a8;font-size:0.75rem;text-align:center;animation:bounce 2s ease-in-out infinite;letter-spacing:0.1em;text-transform:uppercase}
 .scroll-hint svg{display:block;margin:0.4rem auto 0;width:20px;height:20px;stroke:#a8c8a8}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);opacity:0.5}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
@@ -72,38 +71,46 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 .main-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:url('images/section-bg.png') center/cover no-repeat;z-index:-1}
 .main-content{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem;position:relative}
 
-/* Zigzag/spiky border using clip-path */
+/* Shimmer/pulse gradient border cards */
+@keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
 .sections-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:4rem}
 
-.section-card{background:#f0ffe0;padding:2rem;transition:all 200ms;cursor:pointer;text-decoration:none;color:inherit;display:block;position:relative;clip-path:polygon(3% 0%,7% 3%,11% 0%,15% 3%,19% 0%,23% 3%,27% 0%,31% 3%,35% 0%,39% 3%,43% 0%,47% 3%,51% 0%,55% 3%,59% 0%,63% 3%,67% 0%,71% 3%,75% 0%,79% 3%,83% 0%,87% 3%,91% 0%,95% 3%,97% 0%,100% 3%,100% 97%,97% 100%,95% 97%,91% 100%,87% 97%,83% 100%,79% 97%,75% 100%,71% 97%,67% 100%,63% 97%,59% 100%,55% 97%,51% 100%,47% 97%,43% 100%,39% 97%,35% 100%,31% 97%,27% 100%,23% 97%,19% 100%,15% 97%,11% 100%,7% 97%,3% 100%,0% 97%,0% 3%);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
-.section-card::before{content:'';position:absolute;inset:-4px;background:#2d6b1a;clip-path:polygon(3% 0%,7% 3%,11% 0%,15% 3%,19% 0%,23% 3%,27% 0%,31% 3%,35% 0%,39% 3%,43% 0%,47% 3%,51% 0%,55% 3%,59% 0%,63% 3%,67% 0%,71% 3%,75% 0%,79% 3%,83% 0%,87% 3%,91% 0%,95% 3%,97% 0%,100% 3%,100% 97%,97% 100%,95% 97%,91% 100%,87% 97%,83% 100%,79% 97%,75% 100%,71% 97%,67% 100%,63% 97%,59% 100%,55% 97%,51% 100%,47% 97%,43% 100%,39% 97%,35% 100%,31% 97%,27% 100%,23% 97%,19% 100%,15% 97%,11% 100%,7% 97%,3% 100%,0% 97%,0% 3%);z-index:-1}
-.section-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+.section-card{position:relative;background:#f0ffe0;padding:2rem;border-radius:12px;cursor:pointer;text-decoration:none;color:inherit;display:block;transition:transform 200ms,box-shadow 200ms;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.section-card::before{content:'';position:absolute;inset:-3px;border-radius:14px;background:linear-gradient(135deg,#5cb85c,#a0e840,#2d8a2d,#f0c040,#5cb85c);background-size:300% 300%;animation:shimmer 4s ease infinite;z-index:-1}
+.section-card::after{content:'';position:absolute;inset:0;border-radius:12px;background:#f0ffe0;z-index:-1}
+.section-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(92,184,92,0.2)}
 .section-card:hover h3{color:#2d6b1a}
-.section-card h3{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;transition:color 150ms}
-.section-card p{color:#4a5a3a;font-size:0.88rem;line-height:1.6}
-.tag{display:inline-block;margin-top:0.75rem;padding:0.25rem 0.6rem;background:#d4f0a0;border:1px solid #8ab840;border-radius:4px;font-size:0.72rem;font-weight:600;color:#3a5a20;text-transform:uppercase;letter-spacing:0.05em}
+.section-card h3{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;transition:color 150ms;position:relative}
+.section-card p{color:#4a5a3a;font-size:0.88rem;line-height:1.6;position:relative}
+.tag{display:inline-block;margin-top:0.75rem;padding:0.25rem 0.6rem;background:#d4f0a0;border:1px solid #8ab840;border-radius:4px;font-size:0.72rem;font-weight:600;color:#3a5a20;text-transform:uppercase;letter-spacing:0.05em;position:relative}
 
-/* Content sections with zigzag */
-.content-section{margin-bottom:4rem;scroll-margin-top:80px;background:#f0ffe0;padding:2.5rem;position:relative;clip-path:polygon(2% 0%,5% 2%,8% 0%,11% 2%,14% 0%,17% 2%,20% 0%,23% 2%,26% 0%,29% 2%,32% 0%,35% 2%,38% 0%,41% 2%,44% 0%,47% 2%,50% 0%,53% 2%,56% 0%,59% 2%,62% 0%,65% 2%,68% 0%,71% 2%,74% 0%,77% 2%,80% 0%,83% 2%,86% 0%,89% 2%,92% 0%,95% 2%,98% 0%,100% 2%,100% 98%,98% 100%,95% 98%,92% 100%,89% 98%,86% 100%,83% 98%,80% 100%,77% 98%,74% 100%,71% 98%,68% 100%,65% 98%,62% 100%,59% 98%,56% 100%,53% 98%,50% 100%,47% 98%,44% 100%,41% 98%,38% 100%,35% 98%,32% 100%,29% 98%,26% 100%,23% 98%,20% 100%,17% 98%,14% 100%,11% 98%,8% 100%,5% 98%,2% 100%,0% 98%,0% 2%)}
-.content-section::before{content:'';position:absolute;inset:-4px;background:#2d6b1a;clip-path:polygon(2% 0%,5% 2%,8% 0%,11% 2%,14% 0%,17% 2%,20% 0%,23% 2%,26% 0%,29% 2%,32% 0%,35% 2%,38% 0%,41% 2%,44% 0%,47% 2%,50% 0%,53% 2%,56% 0%,59% 2%,62% 0%,65% 2%,68% 0%,71% 2%,74% 0%,77% 2%,80% 0%,83% 2%,86% 0%,89% 2%,92% 0%,95% 2%,98% 0%,100% 2%,100% 98%,98% 100%,95% 98%,92% 100%,89% 98%,86% 100%,83% 98%,80% 100%,77% 98%,74% 100%,71% 98%,68% 100%,65% 98%,62% 100%,59% 98%,56% 100%,53% 98%,50% 100%,47% 98%,44% 100%,41% 98%,38% 100%,35% 98%,32% 100%,29% 98%,26% 100%,23% 98%,20% 100%,17% 98%,14% 100%,11% 98%,8% 100%,5% 98%,2% 100%,0% 98%,0% 2%);z-index:-1}
-.content-section h2{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:0.5rem;color:#1a4a10}
-.content-section>p{color:#4a5a3a;font-size:0.95rem;margin-bottom:1.5rem}
+/* Content sections with shimmer border */
+.content-section{position:relative;margin-bottom:4rem;scroll-margin-top:80px;background:#f0ffe0;padding:2.5rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.content-section::before{content:'';position:absolute;inset:-3px;border-radius:18px;background:linear-gradient(135deg,#5cb85c,#a0e840,#2d8a2d,#f0c040,#5cb85c);background-size:300% 300%;animation:shimmer 4s ease infinite;z-index:-1}
+.content-section::after{content:'';position:absolute;inset:0;border-radius:16px;background:#f0ffe0;z-index:-1}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:0.5rem;color:#1a4a10;position:relative}
+.content-section>p{color:#4a5a3a;font-size:0.95rem;margin-bottom:1.5rem;position:relative}
 
-.modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-.mode-tile{background:#fffff0;border:3px solid #2d6b1a;border-radius:4px;padding:1.5rem;text-align:center;transition:all 200ms;box-shadow:3px 3px 0 #1a4a10}
-.mode-tile:hover{transform:translateY(-4px);box-shadow:5px 5px 0 #1a4a10;border-color:#e85d1a}
-.mode-tile h4{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.4rem;transition:color 150ms}
+.modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;position:relative}
+.mode-tile{position:relative;background:#fffff0;padding:1.5rem;border-radius:10px;text-align:center;transition:all 200ms;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.mode-tile::before{content:'';position:absolute;inset:-2px;border-radius:12px;background:linear-gradient(135deg,#e85d1a,#ff9a40,#f0c040,#e85d1a);background-size:300% 300%;animation:shimmer 5s ease infinite;z-index:-1}
+.mode-tile::after{content:'';position:absolute;inset:0;border-radius:10px;background:#fffff0;z-index:-1}
+.mode-tile:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(232,93,26,0.15)}
+.mode-tile h4{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.4rem;transition:color 150ms;position:relative}
 .mode-tile:hover h4{color:#e85d1a}
-.mode-tile p{color:#6a7a5a;font-size:0.78rem}
+.mode-tile p{color:#6a7a5a;font-size:0.78rem;position:relative}
 
-.cost-group{margin-bottom:2.5rem}
+.cost-group{margin-bottom:2.5rem;position:relative}
 .cost-group-header{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;color:#1a4a10;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
-.cost-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:4px;background:linear-gradient(180deg,#ff7b3a,#e85d1a);color:#fff;font-size:0.9rem;font-weight:700;box-shadow:2px 2px 0 #a03a0a;border:2px solid #d04a10}
-.plants-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.plant-slot{position:relative;aspect-ratio:1;border-radius:4px;border:3px solid #2d6b1a;background:#fffff0;overflow:visible;cursor:pointer;transition:all 200ms;box-shadow:3px 3px 0 #1a4a10}
-.plant-slot:hover{border-color:#5cb85c;transform:translateY(-5px) scale(1.05);box-shadow:5px 5px 0 #1a4a10;z-index:50}
-.plant-slot img{width:100%;height:100%;object-fit:cover;border-radius:2px}
-.plant-tooltip{display:none;position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:240px;background:rgba(10,20,10,0.97);border:2px solid #5cb85c;border-radius:6px;padding:1.1rem 1.2rem;z-index:1000;box-shadow:0 8px 32px rgba(0,0,0,0.5);pointer-events:none}
+.cost-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;background:linear-gradient(180deg,#ff7b3a,#e85d1a);color:#fff;font-size:0.9rem;font-weight:700;box-shadow:2px 2px 0 #a03a0a}
+.plants-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;position:relative}
+.plant-slot{position:relative;aspect-ratio:1;border-radius:10px;background:#fffff0;overflow:visible;cursor:pointer;transition:all 200ms;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.plant-slot::before{content:'';position:absolute;inset:-3px;border-radius:12px;background:linear-gradient(135deg,#5cb85c,#a0e840,#2d8a2d,#f0c040,#5cb85c);background-size:300% 300%;animation:shimmer 3s ease infinite;z-index:-1}
+.plant-slot::after{content:'';position:absolute;inset:0;border-radius:10px;background:#fffff0;z-index:-1}
+.plant-slot:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 8px 20px rgba(92,184,92,0.2);z-index:50}
+.plant-slot img{width:100%;height:100%;object-fit:cover;border-radius:10px;position:relative;z-index:1}
+.plant-tooltip{display:none;position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:240px;background:rgba(10,20,10,0.97);border:2px solid #5cb85c;border-radius:10px;padding:1.1rem 1.2rem;z-index:1000;box-shadow:0 8px 32px rgba(0,0,0,0.5);pointer-events:none}
 .plant-slot:hover .plant-tooltip{display:block}
 .cost-group .plant-slot:nth-child(n+7) .plant-tooltip{bottom:auto;top:calc(100% + 14px)}
 .plant-slot:nth-child(6n+1) .plant-tooltip,.plant-slot:nth-child(6n+2) .plant-tooltip{left:0;transform:translateX(0)}
@@ -159,7 +166,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 <audio id="bgm" loop><source src="images/pof-ost.mp3" type="audio/mpeg"></audio>
 
 <script>
-var translations={en:{nav_plants:"Plants",nav_modes:"Game Modes",nav_official:"Official Site",nav_webstore:"Webstore",hero_tagline:"The Community Wiki for Captains",hero_btn_plants:"Explore Plants",hero_btn_modes:"Game Modes",hero_btn_official:"Official Site",scroll:"Scroll",card_plants_title:"Plants",card_plants_desc:"Browse the full roster of plants, their skills, synergies, and merge paths.",card_modes_title:"Game Modes",card_modes_desc:"Ranked, Rumble Chess, Club Race, Co-Op, Adventure Mode, Boss Battle.",card_official_title:"Official Website",card_official_desc:"News, pre-registration, updates, and community events.",card_webstore_title:"Webstore",card_webstore_desc:"Official store for in-game purchases, bundles, and promotions.",coming_soon:"Coming soon",plants_title:"Plants",plants_desc:"Hover over any plant to see its stats and abilities. Grouped by deploy cost.",cost_3:"Cost 3 Plants",cost_5:"Cost 5 Plants",cost_8:"Cost 8 Plants",apple_sheriff_desc:"Attacks 6 enemies at once, dealing 50% damage.",stat_atk:"ATK",stat_interval:"Interval",stat_target:"Target",front_line:"Front Line",modes_title:"Game Modes",modes_desc:"All available game modes. Click any mode for detailed strategies, rewards, and tips.",mode_ranked:"Ranked",mode_ranked_desc:"Competitive PvP ladder",mode_rumble:"Rumble Chess",mode_rumble_desc:"Auto-chess style battles",mode_club:"Club Race",mode_club_desc:"Team-based racing event",mode_coop:"Co-Op",mode_coop_desc:"Cooperative PvE missions",mode_adventure:"Adventure",mode_adventure_desc:"Story campaign progression",mode_boss:"Boss Battle",mode_boss_desc:"Challenging boss encounters",footer_text:"Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games."},pt:{nav_plants:"Plantas",nav_modes:"Modos",nav_official:"Site Oficial",nav_webstore:"Loja",hero_tagline:"O Wiki da Comunidade para Capitães",hero_btn_plants:"Explorar Plantas",hero_btn_modes:"Modos de Jogo",hero_btn_official:"Site Oficial",scroll:"Rolar",card_plants_title:"Plantas",card_plants_desc:"Todas as plantas, habilidades e sinergias.",card_modes_title:"Modos de Jogo",card_modes_desc:"Ranqueada, Rumble Chess, Club Race, Co-Op, Aventura, Chefe.",card_official_title:"Site Oficial",card_official_desc:"Notícias e eventos.",card_webstore_title:"Loja",card_webstore_desc:"Loja oficial.",coming_soon:"Em breve",plants_title:"Plantas",plants_desc:"Passe o mouse para ver estatísticas.",cost_3:"Custo 3",cost_5:"Custo 5",cost_8:"Custo 8",apple_sheriff_desc:"Ataca 6 inimigos, 50% dano.",stat_atk:"ATQ",stat_interval:"Intervalo",stat_target:"Alvo",front_line:"Frente",modes_title:"Modos de Jogo",modes_desc:"Todos os modos disponíveis.",mode_ranked:"Ranqueada",mode_ranked_desc:"PvP competitiva",mode_rumble:"Rumble Chess",mode_rumble_desc:"Auto-chess",mode_club:"Club Race",mode_club_desc:"Corrida em equipe",mode_coop:"Co-Op",mode_coop_desc:"Cooperativo",mode_adventure:"Aventura",mode_adventure_desc:"Campanha",mode_boss:"Chefe",mode_boss_desc:"Encontros de chefe",footer_text:"Plants on Fire Wiki — Guia comunitário."},id:{nav_plants:"Tanaman",nav_modes:"Mode",nav_official:"Situs Resmi",nav_webstore:"Toko",hero_tagline:"Wiki Komunitas untuk Kapten",hero_btn_plants:"Jelajahi",hero_btn_modes:"Mode Permainan",hero_btn_official:"Situs Resmi",scroll:"Gulir",card_plants_title:"Tanaman",card_plants_desc:"Semua tanaman dan skill.",card_modes_title:"Mode Permainan",card_modes_desc:"Ranked, Rumble Chess, Club Race, Co-Op, Adventure, Boss.",card_official_title:"Situs Resmi",card_official_desc:"Berita dan acara.",card_webstore_title:"Toko",card_webstore_desc:"Toko resmi.",coming_soon:"Segera",plants_title:"Tanaman",plants_desc:"Arahkan kursor untuk statistik.",cost_3:"Biaya 3",cost_5:"Biaya 5",cost_8:"Biaya 8",apple_sheriff_desc:"Menyerang 6 musuh, 50% damage.",stat_atk:"ATK",stat_interval:"Interval",stat_target:"Target",front_line:"Depan",modes_title:"Mode Permainan",modes_desc:"Semua mode.",mode_ranked:"Ranked",mode_ranked_desc:"PvP kompetitif",mode_rumble:"Rumble Chess",mode_rumble_desc:"Auto-chess",mode_club:"Club Race",mode_club_desc:"Balap tim",mode_coop:"Co-Op",mode_coop_desc:"Kooperatif",mode_adventure:"Petualangan",mode_adventure_desc:"Kampanye",mode_boss:"Boss",mode_boss_desc:"Pertarungan bos",footer_text:"Plants on Fire Wiki — Panduan komunitas."}};
+var translations={en:{nav_plants:"Plants",nav_modes:"Game Modes",nav_official:"Official Site",nav_webstore:"Webstore",hero_tagline:"The Community Wiki for Captains",hero_btn_plants:"Explore Plants",hero_btn_modes:"Game Modes",hero_btn_official:"Official Site",scroll:"Scroll",card_plants_title:"Plants",card_plants_desc:"Browse the full roster of plants, their skills, synergies, and merge paths.",card_modes_title:"Game Modes",card_modes_desc:"Ranked, Rumble Chess, Club Race, Co-Op, Adventure Mode, Boss Battle.",card_official_title:"Official Website",card_official_desc:"News, pre-registration, updates, and community events.",card_webstore_title:"Webstore",card_webstore_desc:"Official store for in-game purchases, bundles, and promotions.",coming_soon:"Coming soon",plants_title:"Plants",plants_desc:"Hover over any plant to see its stats and abilities. Grouped by deploy cost.",cost_3:"Cost 3 Plants",cost_5:"Cost 5 Plants",cost_8:"Cost 8 Plants",apple_sheriff_desc:"Attacks 6 enemies at once, dealing 50% damage.",stat_atk:"ATK",stat_interval:"Interval",stat_target:"Target",front_line:"Front Line",modes_title:"Game Modes",modes_desc:"All available game modes. Click any mode for detailed strategies, rewards, and tips.",mode_ranked:"Ranked",mode_ranked_desc:"Competitive PvP ladder",mode_rumble:"Rumble Chess",mode_rumble_desc:"Auto-chess style battles",mode_club:"Club Race",mode_club_desc:"Team-based racing event",mode_coop:"Co-Op",mode_coop_desc:"Cooperative PvE missions",mode_adventure:"Adventure",mode_adventure_desc:"Story campaign progression",mode_boss:"Boss Battle",mode_boss_desc:"Challenging boss encounters",footer_text:"Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games."}};
 var langBtn=document.getElementById('langBtn'),langDropdown=document.getElementById('langDropdown');
 langBtn.addEventListener('click',function(e){e.stopPropagation();langDropdown.classList.toggle('open')});
 document.addEventListener('click',function(){langDropdown.classList.remove('open')});
