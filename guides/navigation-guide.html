@@ -15,16 +15,13 @@ h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#a0e840;margin-bottom
 .guide-container{position:relative;width:100%;max-width:400px;margin:0 auto}
 .guide-container img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
 
-/* Hotspots */
-.hotspot{position:absolute;border:2px solid rgba(160,232,64,0.5);border-radius:6px;cursor:pointer;transition:all 200ms;z-index:10}
+.hotspot{position:absolute;border:2px solid transparent;border-radius:6px;cursor:pointer;transition:all 200ms;z-index:10}
 .hotspot:hover{border-color:#a0e840;background:rgba(160,232,64,0.15);box-shadow:0 0 12px rgba(160,232,64,0.4)}
 .hotspot.active{border-color:#f0c040;background:rgba(240,192,64,0.15);box-shadow:0 0 16px rgba(240,192,64,0.5)}
 
-/* Hotspot number badge */
 .hotspot-num{position:absolute;top:-8px;left:-8px;width:20px;height:20px;background:#e85d1a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#fff;opacity:0.8;transition:opacity 200ms}
 .hotspot:hover .hotspot-num{opacity:1}
 
-/* Tooltip popup */
 .tooltip-box{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:360px;background:rgba(15,25,15,0.97);border:2px solid #5cb85c;border-radius:12px;padding:1.5rem;z-index:1000;box-shadow:0 12px 48px rgba(0,0,0,0.6)}
 .tooltip-box.show{display:block}
 .tooltip-box-title{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:#a0e840;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem}
@@ -33,7 +30,6 @@ h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#a0e840;margin-bottom
 .tooltip-box-close{position:absolute;top:0.75rem;right:0.75rem;width:28px;height:28px;background:rgba(255,255,255,0.1);border:none;border-radius:50%;color:#a8c8a8;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 150ms}
 .tooltip-box-close:hover{background:rgba(232,93,26,0.3);color:#fff}
 
-/* Overlay when tooltip is open */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
 .overlay.show{display:block}
 
@@ -50,50 +46,49 @@ h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#a0e840;margin-bottom
   <img src="../images/main-screen.png" alt="Main Screen">
 
   <!-- 1. Player Profile -->
-  <div class="hotspot" style="top:5%;left:0%;width:18%;height:10%" data-id="1"><span class="hotspot-num">1</span></div>
+  <div class="hotspot" style="top:3%;left:2%;width:20%;height:9%" data-id="1"><span class="hotspot-num">1</span></div>
   <!-- 2. Power Track -->
-  <div class="hotspot" style="top:16%;left:0%;width:16%;height:5%" data-id="2"><span class="hotspot-num">2</span></div>
+  <div class="hotspot" style="top:13%;left:2%;width:18%;height:4%" data-id="2"><span class="hotspot-num">2</span></div>
   <!-- 3. Events -->
-  <div class="hotspot" style="top:22%;left:0%;width:14%;height:6%" data-id="3"><span class="hotspot-num">3</span></div>
+  <div class="hotspot" style="top:18%;left:2%;width:15%;height:5%" data-id="3"><span class="hotspot-num">3</span></div>
   <!-- 4. Block Brawl -->
-  <div class="hotspot" style="top:29%;left:0%;width:16%;height:7%" data-id="4"><span class="hotspot-num">4</span></div>
+  <div class="hotspot" style="top:24%;left:2%;width:17%;height:7%" data-id="4"><span class="hotspot-num">4</span></div>
   <!-- 5. Glory Pass -->
-  <div class="hotspot" style="top:5%;left:18%;width:50%;height:7%" data-id="5"><span class="hotspot-num">5</span></div>
+  <div class="hotspot" style="top:3%;left:22%;width:48%;height:6%" data-id="5"><span class="hotspot-num">5</span></div>
   <!-- 6. Menu -->
-  <div class="hotspot" style="top:5%;right:0%;width:10%;height:5%" data-id="6"><span class="hotspot-num">6</span></div>
+  <div class="hotspot" style="top:3%;left:86%;width:12%;height:6%" data-id="6"><span class="hotspot-num">6</span></div>
   <!-- 7. Quests -->
-  <div class="hotspot" style="top:12%;right:0%;width:14%;height:5%" data-id="7"><span class="hotspot-num">7</span></div>
+  <div class="hotspot" style="top:10%;left:85%;width:13%;height:5%" data-id="7"><span class="hotspot-num">7</span></div>
   <!-- 8. Leaderboard -->
-  <div class="hotspot" style="top:18%;right:0%;width:16%;height:5%" data-id="8"><span class="hotspot-num">8</span></div>
+  <div class="hotspot" style="top:16%;left:84%;width:14%;height:5%" data-id="8"><span class="hotspot-num">8</span></div>
   <!-- 9. Season Blessing -->
-  <div class="hotspot" style="top:24%;right:0%;width:14%;height:6%" data-id="9"><span class="hotspot-num">9</span></div>
-  <!-- 10. Current Deck -->
-  <div class="hotspot" style="top:35%;left:10%;width:80%;height:30%" data-id="10"><span class="hotspot-num">10</span></div>
-  <!-- 11. Glory Track -->
-  <div class="hotspot" style="top:66%;left:20%;width:40%;height:8%" data-id="11"><span class="hotspot-num">11</span></div>
-  <!-- 12. Co-op -->
-  <div class="hotspot" style="top:76%;left:0%;width:18%;height:8%" data-id="12"><span class="hotspot-num">12</span></div>
+  <div class="hotspot" style="top:22%;left:84%;width:14%;height:6%" data-id="9"><span class="hotspot-num">9</span></div>
+  <!-- 10. Current Deck (center) -->
+  <div class="hotspot" style="top:30%;left:12%;width:76%;height:32%" data-id="10"><span class="hotspot-num">10</span></div>
+  <!-- 11. Glory Track / Currency Reward -->
+  <div class="hotspot" style="top:63%;left:22%;width:40%;height:7%" data-id="11"><span class="hotspot-num">11</span></div>
+  <!-- 12. Ranked Match bar -->
+  <div class="hotspot" style="top:82%;left:16%;width:50%;height:7%" data-id="12"><span class="hotspot-num">12</span></div>
   <!-- 13. Summoning Jutsu / Deck -->
-  <div class="hotspot" style="top:68%;right:0%;width:16%;height:6%" data-id="13"><span class="hotspot-num">13</span></div>
-  <!-- 14. Ranked Match -->
-  <div class="hotspot" style="top:82%;left:18%;width:48%;height:8%" data-id="14"><span class="hotspot-num">14</span></div>
+  <div class="hotspot" style="top:64%;left:80%;width:18%;height:7%" data-id="13"><span class="hotspot-num">13</span></div>
+  <!-- 14. Co-op -->
+  <div class="hotspot" style="top:77%;left:2%;width:22%;height:10%" data-id="14"><span class="hotspot-num">14</span></div>
   <!-- 15. Rumble Chess -->
-  <div class="hotspot" style="top:76%;right:0%;width:20%;height:10%" data-id="15"><span class="hotspot-num">15</span></div>
+  <div class="hotspot" style="top:76%;left:76%;width:22%;height:11%" data-id="15"><span class="hotspot-num">15</span></div>
   <!-- 16. Shop -->
-  <div class="hotspot" style="bottom:0%;left:0%;width:16%;height:5%" data-id="16"><span class="hotspot-num">16</span></div>
+  <div class="hotspot" style="top:92%;left:0%;width:16%;height:7%" data-id="16"><span class="hotspot-num">16</span></div>
   <!-- 17. Fun Modes -->
-  <div class="hotspot" style="bottom:0%;left:17%;width:16%;height:5%" data-id="17"><span class="hotspot-num">17</span></div>
+  <div class="hotspot" style="top:92%;left:17%;width:16%;height:7%" data-id="17"><span class="hotspot-num">17</span></div>
   <!-- 18. Home -->
-  <div class="hotspot" style="bottom:0%;left:34%;width:16%;height:5%" data-id="18"><span class="hotspot-num">18</span></div>
+  <div class="hotspot" style="top:92%;left:34%;width:16%;height:7%" data-id="18"><span class="hotspot-num">18</span></div>
   <!-- 19. Collection -->
-  <div class="hotspot" style="bottom:0%;left:52%;width:16%;height:5%" data-id="19"><span class="hotspot-num">19</span></div>
+  <div class="hotspot" style="top:92%;left:51%;width:16%;height:7%" data-id="19"><span class="hotspot-num">19</span></div>
   <!-- 20. Club -->
-  <div class="hotspot" style="bottom:0%;left:70%;width:16%;height:5%" data-id="20"><span class="hotspot-num">20</span></div>
+  <div class="hotspot" style="top:92%;left:68%;width:16%;height:7%" data-id="20"><span class="hotspot-num">20</span></div>
 </div>
 
-<a href="index.html" class="back-link">← Back to Wiki</a>
+<a href="index.html" class="back-link">← Back to Guides</a>
 
-<!-- Overlay + Tooltip -->
 <div class="overlay" id="overlay"></div>
 <div class="tooltip-box" id="tooltipBox">
   <button class="tooltip-box-close" id="closeBtn">✕</button>
@@ -114,9 +109,9 @@ var data = {
   9: { name: "Season Blessing", desc: "Unlocks as the season progresses, introducing powerful effects that bring new advantages or changes to your battles. Each blessing lasts for one week." },
   10: { name: "Current Deck", desc: "Go straight to editing your current Plants and Captains lineup." },
   11: { name: "Glory Track", desc: "Shows your current Ranked Trophies, progression rewards, rank rewards, and how many days remain before the season ends." },
-  12: { name: "Co-op", desc: "Challenge Co-op stages with another player and earn rewards based on how many rounds you complete." },
+  12: { name: "Ranked Match", desc: "Start your 1v1 PVP journey. Climb the ranks and earn trophies." },
   13: { name: "Deck", desc: "Access, edit, and save your new or current Decks." },
-  14: { name: "Ranked Match", desc: "Start your 1v1 PVP journey. Climb the ranks and earn trophies." },
+  14: { name: "Co-op", desc: "Challenge Co-op stages with another player and earn rewards based on how many rounds you complete." },
   15: { name: "Rumble Chess", desc: "Face 7 other players in random matchups. Rankings are determined by elimination order, with higher placements earning more Rumble Trophies and Medals." },
   16: { name: "Shop", desc: "See current Pack offers, Recommended Perks, Resource Packs, and Recruit options (Lucky, Basic, and Variant)." },
   17: { name: "Fun Modes", desc: "Play Adventure Mode, Boss Battle, Casual Battle, Friendly 1v1 Scrims, and Plants Only Challenge." },
