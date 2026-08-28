@@ -81,7 +81,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
       <li><a href="#plants">Plants</a></li>
       <li><a href="#game-modes">Game Modes</a></li>
       <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="ext">Official Site ↗</a></li>
-      <li><a href="https://pay.nvsgames.com/topup/803374/id-en?" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
+      <li><a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="ext">Webstore ↗</a></li>
     </ul>
   </div>
 </header>
@@ -188,6 +188,18 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
   </ul>
   <p>Plants on Fire Wiki — Community guide. Not affiliated with Nuverse Games.</p>
 </footer>
+
+<audio id="bgm" loop>
+  <source src="images/pof-ost.mp3" type="audio/mpeg">
+</audio>
+<script>
+document.addEventListener('click', function startMusic() {
+  var bgm = document.getElementById('bgm');
+  bgm.volume = 0.3;
+  bgm.play();
+  document.removeEventListener('click', startMusic);
+}, { once: true });
+</script>
 
 </body>
 </html>
