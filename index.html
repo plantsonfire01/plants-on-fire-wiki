@@ -15,71 +15,83 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#f0c040}
 .logo .fire{color:#e85d1a}
-.nav-links{display:flex;gap:0.5rem;list-style:none}
+.nav-links{display:flex;gap:0.5rem;list-style:none;align-items:center}
 .nav-links a{display:block;padding:0.5rem 1.1rem;color:#a8c8a8;text-decoration:none;font-size:0.85rem;font-weight:600;border-radius:100px;transition:all 150ms}
-.nav-links a:hover{color:#f0f8f0;background:rgba(92,184,92,0.2)}
+.nav-links a:hover{color:#fff;background:rgba(92,184,92,0.3);text-shadow:0 0 8px rgba(92,184,92,0.5)}
 .nav-links a.btn-nav{background:#5cb85c;color:#f0f8f0;padding:0.5rem 1.3rem}
-.nav-links a.btn-nav:hover{background:#4cae4c;transform:scale(1.03)}
+.nav-links a.btn-nav:hover{background:#4cae4c;transform:scale(1.05);color:#fff}
 .nav-links a.btn-nav-orange{background:#e85d1a;color:#fff;padding:0.5rem 1.3rem}
-.nav-links a.btn-nav-orange:hover{background:#d4510f;transform:scale(1.03)}
+.nav-links a.btn-nav-orange:hover{background:#ff7b3a;transform:scale(1.05)}
+
+/* Mute Button */
+.mute-btn{background:none;border:1px solid rgba(168,200,168,0.4);color:#a8c8a8;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 150ms}
+.mute-btn:hover{background:rgba(92,184,92,0.2);color:#fff;border-color:rgba(92,184,92,0.6)}
+.mute-btn.muted{color:#e85d1a;border-color:rgba(232,93,26,0.4)}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a2e1a}
-.hero-bg{position:absolute;inset:0;background:url('images/bg.png') center/cover no-repeat;opacity:0.4}
+.hero-bg{position:absolute;inset:0;background:url('images/bg.png') center/cover no-repeat;opacity:0.5}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(26,46,26,0.3) 0%,rgba(26,46,26,0.8) 70%)}
 .hero-content{position:relative;z-index:10;text-align:center;padding:2rem}
 .hero-logo{width:clamp(220px,45vw,360px);height:auto;margin-bottom:2rem;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.3))}
 .hero-tagline{font-family:'Fredoka',sans-serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:#e8f0e8;margin-bottom:2.5rem;font-weight:500}
 .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;border-radius:100px;font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;text-decoration:none;transition:transform 150ms,box-shadow 150ms;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
 .btn-green{background:linear-gradient(180deg,#6dd66d 0%,#3da63d 100%);color:#f0fff0;box-shadow:0 4px 0 #2d8a2d,0 6px 20px rgba(61,166,61,0.3)}
-.btn-green:hover{transform:translateY(-2px);box-shadow:0 6px 0 #2d8a2d,0 8px 24px rgba(61,166,61,0.4)}
+.btn-green:hover{box-shadow:0 6px 0 #2d8a2d,0 8px 24px rgba(61,166,61,0.4)}
 .btn-orange{background:linear-gradient(180deg,#ff7b3a 0%,#e85d1a 100%);color:#fff;box-shadow:0 4px 0 #b84a15,0 6px 20px rgba(232,93,26,0.3)}
-.btn-orange:hover{transform:translateY(-2px);box-shadow:0 6px 0 #b84a15,0 8px 24px rgba(232,93,26,0.4)}
+.btn-orange:hover{box-shadow:0 6px 0 #b84a15,0 8px 24px rgba(232,93,26,0.4)}
 .btn-gold{background:linear-gradient(180deg,#ffd54f 0%,#f0a030 100%);color:#5c3a10;box-shadow:0 4px 0 #c88020,0 6px 20px rgba(240,160,48,0.3)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c88020,0 8px 24px rgba(240,160,48,0.4)}
+.btn-gold:hover{box-shadow:0 6px 0 #c88020,0 8px 24px rgba(240,160,48,0.4)}
 
 /* Floating Characters */
 .hero-char{position:absolute;z-index:5;pointer-events:none}
 .hero-char img{width:100%;height:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))}
 .hero-char-1{left:3%;bottom:5%;width:clamp(100px,15vw,180px);animation:float1 4s ease-in-out infinite}
-.hero-char-2{right:3%;bottom:8%;width:clamp(100px,14vw,160px);animation:float2 5s ease-in-out infinite}
+.hero-char-2{right:3%;bottom:8%;width:clamp(100px,14vw,160px);animation:float2r 5s ease-in-out infinite}
 .hero-char-3{left:8%;top:18%;width:clamp(80px,10vw,130px);animation:float3 4.5s ease-in-out infinite}
 .hero-char-4{right:8%;top:20%;width:clamp(90px,12vw,150px);animation:float1 5.5s ease-in-out infinite}
-.hero-char-5{left:50%;bottom:3%;transform:translateX(-50%);width:clamp(70px,9vw,110px);animation:float2 3.5s ease-in-out infinite}
+.hero-char-5{left:50%;bottom:3%;transform:translateX(-50%);width:clamp(70px,9vw,110px);animation:float5 3.5s ease-in-out infinite}
 
 @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes float2{0%,100%{transform:translateY(0) translateX(-50%)}50%{transform:translateY(-10px) translateX(-50%)}}
+@keyframes float2r{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes float3{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+@keyframes float5{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
 
 /* Scroll indicator */
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;color:#a8c8a8;font-size:0.75rem;text-align:center;animation:bounce 2s ease-in-out infinite;letter-spacing:0.1em;text-transform:uppercase}
 .scroll-hint svg{display:block;margin:0.4rem auto 0;width:20px;height:20px;stroke:#a8c8a8}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);opacity:0.5}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
 
-/* Main */
-.main{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem}
+/* Main with section background */
+.main{position:relative;max-width:100%;padding:0}
+.main-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:url('images/section-bg.png') center/cover no-repeat;z-index:-1}
+.main-content{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem;position:relative}
+
+/* Section cards and content */
 .sections-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:4rem}
-.section-card{background:#fffcf7;border:1px solid #e8e0d4;border-radius:12px;padding:2rem;transition:border-color 200ms,box-shadow 200ms,transform 150ms;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.section-card:hover{border-color:#5cb85c;box-shadow:0 8px 24px rgba(45,36,24,0.06);transform:translateY(-2px)}
+.section-card{background:rgba(255,252,247,0.92);border:1px solid rgba(232,224,212,0.8);border-radius:12px;padding:2rem;transition:border-color 200ms,box-shadow 200ms,transform 150ms;cursor:pointer;text-decoration:none;color:inherit;display:block;backdrop-filter:blur(4px)}
+.section-card:hover{border-color:#5cb85c;box-shadow:0 8px 24px rgba(45,36,24,0.1);transform:translateY(-3px)}
 .section-card-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
 .section-card h3{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem}
 .section-card p{color:#5c4a38;font-size:0.88rem;line-height:1.6}
 .tag{display:inline-block;margin-top:0.75rem;padding:0.25rem 0.6rem;background:#f0ebe4;border-radius:4px;font-size:0.72rem;font-weight:600;color:#8a7a68;text-transform:uppercase;letter-spacing:0.05em}
-.content-section{margin-bottom:4rem;scroll-margin-top:80px}
+.content-section{margin-bottom:4rem;scroll-margin-top:80px;background:rgba(255,252,247,0.88);border-radius:16px;padding:2.5rem;backdrop-filter:blur(4px)}
 .content-section h2{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:0.5rem}
 .content-section>p{color:#5c4a38;font-size:0.95rem;margin-bottom:1.5rem}
 .modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-.mode-tile{background:#fffcf7;border:1px solid #e8e0d4;border-radius:10px;padding:1.5rem;text-align:center;transition:border-color 200ms,transform 150ms}
-.mode-tile:hover{border-color:#e85d1a;transform:translateY(-1px)}
-.mode-tile h4{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.4rem}
+.mode-tile{background:rgba(255,252,247,0.95);border:1px solid #e8e0d4;border-radius:10px;padding:1.5rem;text-align:center;transition:border-color 200ms,transform 150ms,background 150ms}
+.mode-tile:hover{border-color:#e85d1a;transform:translateY(-2px);background:#fff}
+.mode-tile h4{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.4rem;transition:color 150ms}
+.mode-tile:hover h4{color:#e85d1a}
 .mode-tile p{color:#8a7a68;font-size:0.78rem}
 .cost-group{margin-bottom:2.5rem}
 .cost-group-header{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:600;color:#2d2418;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
 .cost-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:#e85d1a;color:#fff;font-size:0.85rem;font-weight:700}
 .plants-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 .plant-slot{position:relative;aspect-ratio:1;border-radius:10px;border:2px solid #e8e0d4;background:#fffcf7;overflow:visible;cursor:pointer;transition:border-color 200ms,transform 150ms,box-shadow 200ms}
-.plant-slot:hover{border-color:#5cb85c;transform:translateY(-3px) scale(1.05);box-shadow:0 6px 16px rgba(45,36,24,0.1);z-index:50}
+.plant-slot:hover{border-color:#5cb85c;transform:translateY(-3px) scale(1.05);box-shadow:0 6px 16px rgba(45,36,24,0.15);z-index:50}
 .plant-slot img{width:100%;height:100%;object-fit:cover;border-radius:8px}
 .plant-tooltip{display:none;position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:240px;background:rgba(20,14,10,0.96);border:1px solid rgba(92,184,92,0.4);border-radius:10px;padding:1.1rem 1.2rem;z-index:1000;box-shadow:0 8px 32px rgba(0,0,0,0.4);pointer-events:none}
 .plant-slot:hover .plant-tooltip{display:block}
@@ -97,19 +109,20 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
 .plant-tooltip-stat{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0.6rem;background:rgba(255,255,255,0.06);border-radius:5px;font-size:0.75rem;gap:0.5rem}
 .plant-tooltip-stat .label{color:#8a9a7a;white-space:nowrap}
 .plant-tooltip-stat .value{color:#f0f8f0;font-weight:600;text-align:right}
-.footer{background:#1c2a1c;padding:2.5rem 2rem;text-align:center;color:#6a8a6a;font-size:0.8rem}
-.footer a{color:#f0c040;text-decoration:none}
-.footer a:hover{text-decoration:underline}
+.footer{background:rgba(28,42,28,0.97);padding:2.5rem 2rem;text-align:center;color:#6a8a6a;font-size:0.8rem;position:relative;z-index:1}
+.footer a{color:#f0c040;text-decoration:none;transition:color 150ms}
+.footer a:hover{color:#ffd54f;text-decoration:underline}
 .footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;list-style:none}
 
 @media(max-width:768px){
   .header-inner{flex-direction:column;height:auto;padding:0.75rem 0;gap:0.5rem}
   .hero-char-1,.hero-char-2{width:100px}
   .hero-char-3,.hero-char-4{display:none}
-  .main{padding:2.5rem 1.25rem 4rem}
+  .main-content{padding:2.5rem 1.25rem 4rem}
   .sections-grid{grid-template-columns:1fr}
   .nav-links{flex-wrap:wrap;justify-content:center}
   .plants-grid{grid-template-columns:repeat(4,1fr)}
+  .content-section{padding:1.5rem}
 }
 @media(max-width:480px){
   .modes-grid{grid-template-columns:1fr}
@@ -128,6 +141,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
       <li><a href="#game-modes">Game Modes</a></li>
       <li><a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="btn-nav">Official Site</a></li>
       <li><a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="btn-nav-orange">Webstore</a></li>
+      <li><button class="mute-btn" id="muteBtn" title="Toggle Music">🔊</button></li>
     </ul>
   </div>
 </header>
@@ -137,7 +151,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
 
-  <!-- Floating Characters -->
   <div class="hero-char hero-char-1"><img src="images/hero-plant-1.png" alt=""></div>
   <div class="hero-char hero-char-2"><img src="images/hero-plant-2.png" alt=""></div>
   <div class="hero-char hero-char-3"><img src="images/hero-plant-4.png" alt=""></div>
@@ -160,82 +173,86 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
   </div>
 </section>
 
-<main class="main">
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div class="main-bg"></div>
+  <div class="main-content">
 
-  <div class="sections-grid">
-    <a href="#plants" class="section-card">
-      <div class="section-card-icon" style="background:#e8f5e8">🌻</div>
-      <h3>Plants</h3>
-      <p>Browse the full roster of plants, their skills, synergies, and merge paths.</p>
-    </a>
-    <a href="#game-modes" class="section-card">
-      <div class="section-card-icon" style="background:#fef0e0">⚔️</div>
-      <h3>Game Modes</h3>
-      <p>Ranked, Rumble Chess, Club Race, Co-Op, Adventure Mode, Boss Battle.</p>
-      <span class="tag">Coming soon</span>
-    </a>
-    <a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="section-card">
-      <div class="section-card-icon" style="background:#f0f0e0">🌐</div>
-      <h3>Official Website</h3>
-      <p>News, pre-registration, updates, and community events.</p>
-    </a>
-    <a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="section-card">
-      <div class="section-card-icon" style="background:#f0e8f8">🛒</div>
-      <h3>Webstore</h3>
-      <p>Official store for in-game purchases, bundles, and promotions.</p>
-    </a>
-  </div>
+    <div class="sections-grid">
+      <a href="#plants" class="section-card">
+        <div class="section-card-icon" style="background:#e8f5e8">🌻</div>
+        <h3>Plants</h3>
+        <p>Browse the full roster of plants, their skills, synergies, and merge paths.</p>
+      </a>
+      <a href="#game-modes" class="section-card">
+        <div class="section-card-icon" style="background:#fef0e0">⚔️</div>
+        <h3>Game Modes</h3>
+        <p>Ranked, Rumble Chess, Club Race, Co-Op, Adventure Mode, Boss Battle.</p>
+        <span class="tag">Coming soon</span>
+      </a>
+      <a href="https://www.plantsonfire.com/" target="_blank" rel="noopener" class="section-card">
+        <div class="section-card-icon" style="background:#f0f0e0">🌐</div>
+        <h3>Official Website</h3>
+        <p>News, pre-registration, updates, and community events.</p>
+      </a>
+      <a href="https://pay.nvsgames.com/home/ph-en" target="_blank" rel="noopener" class="section-card">
+        <div class="section-card-icon" style="background:#f0e8f8">🛒</div>
+        <h3>Webstore</h3>
+        <p>Official store for in-game purchases, bundles, and promotions.</p>
+      </a>
+    </div>
 
-  <!-- Plants Section -->
-  <section class="content-section" id="plants">
-    <h2>🌻 Plants</h2>
-    <p>Hover over any plant to see its stats and abilities. Grouped by deploy cost.</p>
+    <!-- Plants Section -->
+    <section class="content-section" id="plants">
+      <h2>🌻 Plants</h2>
+      <p>Hover over any plant to see its stats and abilities. Grouped by deploy cost.</p>
 
-    <div class="cost-group">
-      <div class="cost-group-header"><span class="cost-badge">3</span> Cost 3 Plants</div>
-      <div class="plants-grid">
-        <div class="plant-slot">
-          <img src="images/apple-sheriff.png" alt="Apple Sheriff">
-          <div class="plant-tooltip">
-            <div class="plant-tooltip-name">Apple Sheriff <span class="plant-tooltip-rarity rarity-rare">Rare</span></div>
-            <div class="plant-tooltip-desc">Attacks 6 enemies at once, dealing 50% damage.</div>
-            <div class="plant-tooltip-stats">
-              <div class="plant-tooltip-stat"><span class="label">ATK</span><span class="value">11</span></div>
-              <div class="plant-tooltip-stat"><span class="label">Interval</span><span class="value">2.5s</span></div>
-              <div class="plant-tooltip-stat"><span class="label">Target</span><span class="value">Front Line</span></div>
+      <div class="cost-group">
+        <div class="cost-group-header"><span class="cost-badge">3</span> Cost 3 Plants</div>
+        <div class="plants-grid">
+          <div class="plant-slot">
+            <img src="images/apple-sheriff.png" alt="Apple Sheriff">
+            <div class="plant-tooltip">
+              <div class="plant-tooltip-name">Apple Sheriff <span class="plant-tooltip-rarity rarity-rare">Rare</span></div>
+              <div class="plant-tooltip-desc">Attacks 6 enemies at once, dealing 50% damage.</div>
+              <div class="plant-tooltip-stats">
+                <div class="plant-tooltip-stat"><span class="label">ATK</span><span class="value">11</span></div>
+                <div class="plant-tooltip-stat"><span class="label">Interval</span><span class="value">2.5s</span></div>
+                <div class="plant-tooltip-stat"><span class="label">Target</span><span class="value">Front Line</span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="cost-group">
-      <div class="cost-group-header"><span class="cost-badge">5</span> Cost 5 Plants</div>
-      <div class="plants-grid"></div>
-    </div>
+      <div class="cost-group">
+        <div class="cost-group-header"><span class="cost-badge">5</span> Cost 5 Plants</div>
+        <div class="plants-grid"></div>
+      </div>
 
-    <div class="cost-group">
-      <div class="cost-group-header"><span class="cost-badge">8</span> Cost 8 Plants</div>
-      <div class="plants-grid"></div>
-    </div>
+      <div class="cost-group">
+        <div class="cost-group-header"><span class="cost-badge">8</span> Cost 8 Plants</div>
+        <div class="plants-grid"></div>
+      </div>
 
-  </section>
+    </section>
 
-  <!-- Game Modes Section -->
-  <section class="content-section" id="game-modes">
-    <h2>⚔️ Game Modes</h2>
-    <p>All available game modes. Click any mode for detailed strategies, rewards, and tips.</p>
-    <div class="modes-grid">
-      <div class="mode-tile"><h4>🏆 Ranked</h4><p>Competitive PvP ladder</p></div>
-      <div class="mode-tile"><h4>♟️ Rumble Chess</h4><p>Auto-chess style battles</p></div>
-      <div class="mode-tile"><h4>🏁 Club Race</h4><p>Team-based racing event</p></div>
-      <div class="mode-tile"><h4>🤝 Co-Op</h4><p>Cooperative PvE missions</p></div>
-      <div class="mode-tile"><h4>🗺️ Adventure</h4><p>Story campaign progression</p></div>
-      <div class="mode-tile"><h4>👹 Boss Battle</h4><p>Challenging boss encounters</p></div>
-    </div>
-  </section>
+    <!-- Game Modes Section -->
+    <section class="content-section" id="game-modes">
+      <h2>⚔️ Game Modes</h2>
+      <p>All available game modes. Click any mode for detailed strategies, rewards, and tips.</p>
+      <div class="modes-grid">
+        <div class="mode-tile"><h4>🏆 Ranked</h4><p>Competitive PvP ladder</p></div>
+        <div class="mode-tile"><h4>♟️ Rumble Chess</h4><p>Auto-chess style battles</p></div>
+        <div class="mode-tile"><h4>🏁 Club Race</h4><p>Team-based racing event</p></div>
+        <div class="mode-tile"><h4>🤝 Co-Op</h4><p>Cooperative PvE missions</p></div>
+        <div class="mode-tile"><h4>🗺️ Adventure</h4><p>Story campaign progression</p></div>
+        <div class="mode-tile"><h4>👹 Boss Battle</h4><p>Challenging boss encounters</p></div>
+      </div>
+    </section>
 
-</main>
+  </div>
+</div>
 
 <footer class="footer">
   <ul class="footer-links">
@@ -249,12 +266,37 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8f5f0;color:#2d2418;l
   <source src="images/pof-ost.mp3" type="audio/mpeg">
 </audio>
 <script>
-document.addEventListener('click', function startMusic() {
-  var bgm = document.getElementById('bgm');
-  bgm.volume = 0.3;
-  bgm.play();
-  document.removeEventListener('click', startMusic);
-}, { once: true });
+var bgm = document.getElementById('bgm');
+var muteBtn = document.getElementById('muteBtn');
+var musicStarted = false;
+
+document.addEventListener('click', function startMusic(e) {
+  if (e.target === muteBtn || muteBtn.contains(e.target)) return;
+  if (!musicStarted) {
+    bgm.volume = 0.3;
+    bgm.play();
+    musicStarted = true;
+    document.removeEventListener('click', startMusic);
+  }
+});
+
+muteBtn.addEventListener('click', function() {
+  if (!musicStarted) {
+    bgm.volume = 0.3;
+    bgm.play();
+    musicStarted = true;
+    muteBtn.textContent = '🔊';
+    muteBtn.classList.remove('muted');
+  } else if (bgm.paused) {
+    bgm.play();
+    muteBtn.textContent = '🔊';
+    muteBtn.classList.remove('muted');
+  } else {
+    bgm.pause();
+    muteBtn.textContent = '🔇';
+    muteBtn.classList.add('muted');
+  }
+});
 </script>
 
 </body>
