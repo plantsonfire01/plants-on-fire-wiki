@@ -13,7 +13,7 @@ h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#a0e840;margin-bottom
 .subtitle{color:#8ab840;font-size:0.9rem;margin-bottom:2rem;text-align:center}
 .guide-container{position:relative;width:100%;max-width:400px;margin:0 auto}
 .guide-container img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-.hotspot{position:absolute;border:2px solid rgba(160,232,64,0.5);border-radius:6px;cursor:pointer;transition:all 200ms;z-index:10}
+.hotspot{position:absolute;border:2px solid transparent;border-radius:6px;cursor:pointer;transition:all 200ms;z-index:10}
 .hotspot:hover{border-color:#a0e840;background:rgba(160,232,64,0.15);box-shadow:0 0 12px rgba(160,232,64,0.4)}
 .hotspot.active{border-color:#f0c040;background:rgba(240,192,64,0.15);box-shadow:0 0 16px rgba(240,192,64,0.5)}
 .hotspot-num{position:absolute;top:-8px;left:-8px;width:20px;height:20px;background:#e85d1a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#fff;opacity:0.8;transition:opacity 200ms}
@@ -39,46 +39,26 @@ h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#a0e840;margin-bottom
 <div class="guide-container">
   <img src="../images/main-screen.png" alt="Main Screen">
 
-  <!-- 1. Player Avatar/Profile - top left -->
-  <div class="hotspot" style="top:4%;left:2%;width:16%;height:8%" data-id="1"><span class="hotspot-num">1</span></div>
-  <!-- 2. Power Track 999% - left side below profile -->
-  <div class="hotspot" style="top:15%;left:2%;width:18%;height:4%" data-id="2"><span class="hotspot-num">2</span></div>
-  <!-- 3. Events - left side -->
-  <div class="hotspot" style="top:20%;left:2%;width:14%;height:5%" data-id="3"><span class="hotspot-num">3</span></div>
-  <!-- 4. Block Brawl - left side below events -->
-  <div class="hotspot" style="top:26%;left:2%;width:17%;height:7%" data-id="4"><span class="hotspot-num">4</span></div>
-  <!-- 5. Glory Pass - top center blue banner -->
-  <div class="hotspot" style="top:5%;left:20%;width:50%;height:5%" data-id="5"><span class="hotspot-num">5</span></div>
-  <!-- 6. Menu - top right corner -->
-  <div class="hotspot" style="top:5%;left:88%;width:10%;height:5%" data-id="6"><span class="hotspot-num">6</span></div>
-  <!-- 7. Quests - right side upper -->
-  <div class="hotspot" style="top:11%;left:85%;width:13%;height:4%" data-id="7"><span class="hotspot-num">7</span></div>
-  <!-- 8. Leaderboard - right side -->
-  <div class="hotspot" style="top:16%;left:84%;width:14%;height:5%" data-id="8"><span class="hotspot-num">8</span></div>
-  <!-- 9. Season Blessing - right side -->
-  <div class="hotspot" style="top:22%;left:84%;width:14%;height:5%" data-id="9"><span class="hotspot-num">9</span></div>
-  <!-- 10. Current Deck - center grid -->
-  <div class="hotspot" style="top:28%;left:16%;width:68%;height:30%" data-id="10"><span class="hotspot-num">10</span></div>
-  <!-- 11. Glory Track / Currency Reward - center below deck -->
-  <div class="hotspot" style="top:59%;left:25%;width:35%;height:7%" data-id="11"><span class="hotspot-num">11</span></div>
-  <!-- 12. Co-op - bottom left -->
-  <div class="hotspot" style="top:74%;left:2%;width:20%;height:9%" data-id="12"><span class="hotspot-num">12</span></div>
-  <!-- 13. Summoning Jutsu / Deck - right side lower -->
-  <div class="hotspot" style="top:63%;left:82%;width:16%;height:6%" data-id="13"><span class="hotspot-num">13</span></div>
-  <!-- 14. Ranked Match - bottom center -->
-  <div class="hotspot" style="top:78%;left:22%;width:46%;height:7%" data-id="14"><span class="hotspot-num">14</span></div>
-  <!-- 15. Rumble Chess - bottom right -->
-  <div class="hotspot" style="top:74%;left:78%;width:20%;height:9%" data-id="15"><span class="hotspot-num">15</span></div>
-  <!-- 16. Shop - bottom nav 1st -->
-  <div class="hotspot" style="top:90%;left:2%;width:15%;height:6%" data-id="16"><span class="hotspot-num">16</span></div>
-  <!-- 17. Fun Modes - bottom nav 2nd -->
-  <div class="hotspot" style="top:90%;left:18%;width:15%;height:6%" data-id="17"><span class="hotspot-num">17</span></div>
-  <!-- 18. Home - bottom nav 3rd -->
-  <div class="hotspot" style="top:90%;left:35%;width:15%;height:6%" data-id="18"><span class="hotspot-num">18</span></div>
-  <!-- 19. Collection - bottom nav 4th -->
-  <div class="hotspot" style="top:90%;left:52%;width:15%;height:6%" data-id="19"><span class="hotspot-num">19</span></div>
-  <!-- 20. Club - bottom nav 5th -->
-  <div class="hotspot" style="top:90%;left:69%;width:15%;height:6%" data-id="20"><span class="hotspot-num">20</span></div>
+  <div class="hotspot" style="top:3%;left:1.6%;width:16.4%;height:9.7%" data-id="1"><span class="hotspot-num">1</span></div>
+  <div class="hotspot" style="top:16.4%;left:1.6%;width:21.4%;height:4.5%" data-id="2"><span class="hotspot-num">2</span></div>
+  <div class="hotspot" style="top:21.6%;left:1.6%;width:16.4%;height:5.2%" data-id="3"><span class="hotspot-num">3</span></div>
+  <div class="hotspot" style="top:27.5%;left:1.6%;width:18.1%;height:7.4%" data-id="4"><span class="hotspot-num">4</span></div>
+  <div class="hotspot" style="top:3%;left:18.9%;width:51%;height:6.7%" data-id="5"><span class="hotspot-num">5</span></div>
+  <div class="hotspot" style="top:3%;left:86.3%;width:11.5%;height:5.2%" data-id="6"><span class="hotspot-num">6</span></div>
+  <div class="hotspot" style="top:13.4%;left:83.9%;width:14%;height:5.2%" data-id="7"><span class="hotspot-num">7</span></div>
+  <div class="hotspot" style="top:19.3%;left:83.9%;width:14%;height:5.2%" data-id="8"><span class="hotspot-num">8</span></div>
+  <div class="hotspot" style="top:25.3%;left:83.9%;width:14%;height:6%" data-id="9"><span class="hotspot-num">9</span></div>
+  <div class="hotspot" style="top:33.5%;left:16.4%;width:65.8%;height:24.2%" data-id="10"><span class="hotspot-num">10</span></div>
+  <div class="hotspot" style="top:58%;left:24.7%;width:41.1%;height:7.4%" data-id="11"><span class="hotspot-num">11</span></div>
+  <div class="hotspot" style="top:72.2%;left:1.6%;width:24.7%;height:10.4%" data-id="12"><span class="hotspot-num">12</span></div>
+  <div class="hotspot" style="top:61%;left:77.3%;width:20.6%;height:8.2%" data-id="13"><span class="hotspot-num">13</span></div>
+  <div class="hotspot" style="top:78.9%;left:23%;width:47.7%;height:8.2%" data-id="14"><span class="hotspot-num">14</span></div>
+  <div class="hotspot" style="top:72.2%;left:74%;width:23.8%;height:10.4%" data-id="15"><span class="hotspot-num">15</span></div>
+  <div class="hotspot" style="top:90%;left:2.5%;width:17.3%;height:8.9%" data-id="16"><span class="hotspot-num">16</span></div>
+  <div class="hotspot" style="top:90%;left:20.6%;width:17.3%;height:8.9%" data-id="17"><span class="hotspot-num">17</span></div>
+  <div class="hotspot" style="top:90%;left:38.7%;width:17.3%;height:8.9%" data-id="18"><span class="hotspot-num">18</span></div>
+  <div class="hotspot" style="top:90%;left:56.7%;width:17.3%;height:8.9%" data-id="19"><span class="hotspot-num">19</span></div>
+  <div class="hotspot" style="top:90%;left:74.8%;width:17.3%;height:8.9%" data-id="20"><span class="hotspot-num">20</span></div>
 </div>
 
 <a href="index.html" class="back-link">← Back to Guides</a>
@@ -113,39 +93,10 @@ var data = {
   19: { name: "Collection", desc: "View your Minions, Captain Badges, Fated Gifts, and Backpack inventory." },
   20: { name: "Club", desc: "Find or create your own Club and fight for glory. Challenge Club Bosses and win Club Race for handsome rewards. Club Coins can be used to purchase SS Club Variants." }
 };
-
-var overlay = document.getElementById('overlay');
-var tooltipBox = document.getElementById('tooltipBox');
-var tooltipNum = document.getElementById('tooltipNum');
-var tooltipTitle = document.getElementById('tooltipTitle');
-var tooltipDesc = document.getElementById('tooltipDesc');
-var closeBtn = document.getElementById('closeBtn');
-var hotspots = document.querySelectorAll('.hotspot');
-
-hotspots.forEach(function(hs) {
-  hs.addEventListener('click', function() {
-    var id = this.getAttribute('data-id');
-    var info = data[id];
-    if (!info) return;
-    tooltipNum.textContent = id;
-    tooltipTitle.textContent = info.name;
-    tooltipDesc.textContent = info.desc;
-    overlay.classList.add('show');
-    tooltipBox.classList.add('show');
-    hotspots.forEach(function(h){h.classList.remove('active')});
-    this.classList.add('active');
-  });
-});
-
-closeBtn.addEventListener('click', closeTooltip);
-overlay.addEventListener('click', closeTooltip);
-
-function closeTooltip() {
-  overlay.classList.remove('show');
-  tooltipBox.classList.remove('show');
-  hotspots.forEach(function(h){h.classList.remove('active')});
-}
+var overlay=document.getElementById('overlay'),tooltipBox=document.getElementById('tooltipBox'),tooltipNum=document.getElementById('tooltipNum'),tooltipTitle=document.getElementById('tooltipTitle'),tooltipDesc=document.getElementById('tooltipDesc'),closeBtn=document.getElementById('closeBtn');
+document.querySelectorAll('.hotspot').forEach(function(hs){hs.addEventListener('click',function(){var id=this.getAttribute('data-id'),info=data[id];if(!info)return;tooltipNum.textContent=id;tooltipTitle.textContent=info.name;tooltipDesc.textContent=info.desc;overlay.classList.add('show');tooltipBox.classList.add('show');document.querySelectorAll('.hotspot').forEach(function(h){h.classList.remove('active')});this.classList.add('active')})});
+closeBtn.addEventListener('click',closeTooltip);overlay.addEventListener('click',closeTooltip);
+function closeTooltip(){overlay.classList.remove('show');tooltipBox.classList.remove('show');document.querySelectorAll('.hotspot').forEach(function(h){h.classList.remove('active')})}
 </script>
-
 </body>
 </html>
